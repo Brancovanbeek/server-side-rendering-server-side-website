@@ -6,12 +6,9 @@ import express from 'express'
 import { Liquid } from 'liquidjs';
 
 
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
 // Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
-
-// Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
+const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_agencies')
+const apiResponseJSON = await apiResponse.json()
 
 // Controleer eventueel de data in je console
 // (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
@@ -34,11 +31,29 @@ app.engine('liquid', engine.express());
 app.set('views', './views')
 
 // Maak een GET route voor de index (meestal doe je dit in de root, als /)
-app.get('/', async function (request, response) {
-   // Render index.liquid uit de Views map
-   // Geef hier eventueel data aan mee
-   response.render('index.liquid')
+
+app.get('/leden', async function (request, response) {
+  // Render index.liquid uit de Views map
+  const responseFromAPI = await fetch('https://fdnd-agency.directus.app/items/dda_agencies');
+    
+  // Zet de JSON-gegevens om naar een object
+  const jsonResponse = await responseFromAPI.json();
+  const data = jsonResponse.data 
+
+  console.log(jsonResponse.data);
+// Geef hier eventueel data aan mee
+
+response.render('leden.liquid', { leden: data })
 })
+
+
+app.get('/lid/:id', async function (request, response) {
+  // Render index.liquid uit de Views map
+  // Geef hier eventueel data aan mee
+  response.render('lid.liquid')
+})
+
+
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt

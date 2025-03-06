@@ -1,0 +1,62 @@
+{% render 'partials/head.liquid' %}
+
+<main>
+    <nav class="nav-bar">
+        <img class="logo-svg" src="/img/logo-mobile.svg" alt="DDA logo">
+        <button>
+            <img class="hamburger-svg" src="/img/icon.svg" alt="hamburger menu">
+        </button>
+    </nav>
+    <section class="page-title-container">
+        <section class="page-title">
+            <a href="">&larr; Terug naar home</a>
+            <h1>Onze leden</h1>
+        </section>
+        
+        <section class="page-title-content">
+            <p>De {{ leden | size }} beste digitale bureaus van Nederland zijn verenigd in Dutch Digital Agencies. Zet de juiste filters aan en zoek contact met het bureau dat het beste bij past bij jouw vraagstuk en uitdaging. Ook DDA lid worden? Ga dan naar deze pagina voor meer informatie.</p>
+                {% comment %} */nummer moet uit database/* {% endcomment %}
+        </section>
+    </section>
+    <section class="filter-container">
+        <section class="search-bar">
+            <label for="search">Zoek een bureau...</label>
+            <input type="text">
+        </section>
+        
+        <section class="filters">
+            <section class="provincie-filter">
+                <select name="" id="">
+                    <option value=""></option>
+                </select>
+            </section>
+            <section class="omvang-filter">
+                <select name="" id="">
+                    <option value=""></option>
+                </select>
+            </section>
+            <section class="sorteren-filter">
+                <select name="" id="">
+                    <option value=""></option>
+                </select>
+            </section>
+        </section>
+    </section>
+
+
+    <section class="leden-card-grid">
+    {% for lid in leden %}
+      <section>
+        <img loading="lazy" alt="{{ lid.title }}" src="https://fdnd-agency.directus.app/assets/{{ lid.photo }}" width="200">
+        <h3>{{ lid.title }}</h3>
+        <p>{{ lid.address | split: " " | last }}</p>
+        <p>{{lid.colleagues}} werknemers</p>
+        <a href="">Details&rightarrow;</a>
+      </section>
+    {% endfor %}
+    </section>
+
+</main>
+
+
+{% render 'partials/foot.liquid' %}
