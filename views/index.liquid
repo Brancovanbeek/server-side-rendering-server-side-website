@@ -24,11 +24,17 @@
             <input type="text" id="search" name="search">
         </section>
         
-        <section class="filters">
+        <form class="filters">
             <!-- Provincie filter -->
             <section class="provincie-filter">
-                <select name="provincie" id="provincie">
-                    <option value="">Alle provincies</option>
+                <select name="provincie" id="provincie" onchange="if(this.value) window.location.href=this.value;">
+                    {% comment %} <option value="">Alle provincies</option>
+                        {% for provincies in leden  %}
+                        {% if provincies.province_string %}
+                    <option value="{{ provincies.province_string }}"></option>
+                        {% endif %}
+                        {% endfor %} {% endcomment %}
+                    <option value="Alle provincies">Alle provincies</option>
                     <option value="Noord-Holland">Noord-Holland</option>
                     <option value="Zuid-Holland">Zuid-Holland</option>
                     <option value="Groningen">Groningen</option>
@@ -42,6 +48,7 @@
                     <option value="Noord-Brabant">Noord-Brabant</option>
                     <option value="Zeeland">Zeeland</option>
                 </select>
+                <button type="submit">Confirm</button>
             </section>
 
             <!-- Omvang filter -->
@@ -55,18 +62,20 @@
                     <option value="100-249">100-249</option>
                     <option value="250+">250+</option>
                 </select>
+                <button type="submit">Confirm</button>
             </section>
 
             <!-- Sorteren filter -->
             <section class="sorteren-filter">
-                <select name="sorteren" id="sorteren">
+                <select name="sorteren" id="sorteren" onchange="if(this.value) window.location.href=this.value;">
                     <option value="">Geen</option>
-                    <option value="a-z">A-Z</option>
-                    <option value="z-a">Z-A</option>
+                    <option value="A-Z">A-Z</option>
+                    <option value="Z-A">Z-A</option>
                     <option value="colleagues">Aantal werknemers</option>
                 </select>
             </section>
-        </section>
+            <button type="submit">Confirm</button>
+        </form>
     </section>
 
 
@@ -82,6 +91,8 @@
       </section>
     {% endfor %}
     </section>
+
+    <script src="/scripts/script.js"></script>
 
 </main>
 
