@@ -6,101 +6,91 @@
     --blue: #364BF7;
    }
    
-/* Algemene instellingen */
-body {
-    font-family: 'Archivo', sans-serif;
-    color: var(--black);
-    background-color: var(--white);
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-   
 /* ===== TYPOGRAFIE DESKTOP ===== */
 .desktop-h1 {
     font-size: 96px;
     font-weight: 600;
     line-height: 96px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
 }
-   
+
 .desktop-h2 {
     font-size: 64px;
     font-weight: 600;
     line-height: 64px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
 }
-   
+
 .desktop-h3 {
     font-size: 48px;
     font-weight: 600;
     line-height: 48px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
     text-transform: uppercase;
 }
-   
+
 .desktop-h4 {
     font-size: 32px;
     font-weight: 400;
     line-height: 40px;
 }
-   
+
 .desktop-h5 {
     font-size: 24px;
     font-weight: 600;
     line-height: 40px;
 }
-   
+
 .desktop-h6 {
     font-size: 24px;
     font-weight: 400;
     line-height: 40px;
 }
-   
+
 .desktop-paragraph {
     font-size: 18px;
     font-weight: 400;
     line-height: 32px;
 }
-   
+
 .desktop-subtext {
     font-family: 'Martian Mono', monospace;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
     text-transform: uppercase;
 }
-   
+
 /* ===== TYPOGRAFIE MOBILE ===== */
 .mobile-h1 {
     font-size: 48px;
     font-weight: 600;
     line-height: 100%;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
 }
 
 .mobile-h2 {
     font-size: 40px;
     font-weight: 600;
     line-height: 40px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
 }
-   
+
 .mobile-h3 {
     font-size: 32px;
     font-weight: 400;
     line-height: 32px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
     text-transform: uppercase;
 }
-   
+
 .mobile-h4 {
     font-size: 24px;
     font-weight: 400;
     line-height: 32px;
 }
-   
+
 .mobile-h5 {
     font-size: 18px;
     font-weight: 600;
@@ -112,17 +102,24 @@ body {
     font-weight: 400;
     line-height: 32px;
 }
-   
+
 .mobile-paragraph {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
 }
-   
+
 .mobile-subtext {
     font-family: 'Martian Mono', monospace;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: -4%;
+    letter-spacing: -0.04em; /* vervang -4% door -0.04em */
+}
+
+.mobile-subtext-2 {
+    font-family: 'Martian Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 24px;
 }
