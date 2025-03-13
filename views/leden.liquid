@@ -9,12 +9,12 @@
     </nav>
     <section class="page-title-container">
         <section class="page-title">
-            <a class="mobile-subtext" href="">←TERUG NAAR HOME</a>
-            <h1 class="mobile-h1">ONZE LEDEN</h1>
+            <a class="subtext" href="">←TERUG NAAR HOME</a>
+            <h1>ONZE LEDEN</h1>
         </section>
         
         <section class="page-title-content">
-            <p class="mobile-h6">De {{ leden | size }} beste digitale bureaus van Nederland zijn verenigd in Dutch Digital Agencies. Zet de juiste filters aan en zoek contact met het bureau dat het beste bij past bij jouw vraagstuk en uitdaging. Ook DDA lid worden? Ga dan naar deze pagina voor meer informatie.</p>
+            <h6>De {{ leden | size }} beste digitale bureaus van Nederland zijn verenigd in Dutch Digital Agencies. Zet de juiste filters aan en zoek contact met het bureau dat het beste bij past bij jouw vraagstuk en uitdaging. Ook DDA lid worden? Ga dan naar deze pagina voor meer informatie.</h6>
         </section>
     </section>
     <section class="filter-container">
@@ -25,7 +25,7 @@
         <form class="filters">
             <!-- Provincie filter -->
             <section class="provincie-filter">
-                <select class="mobile-subtext" name="provincie" id="provincie" onchange="if(this.value) window.location.href='/leden/'  + this.value;">
+                <select class="subtext" name="provincie" id="provincie" onchange="if(this.value) window.location.href='/leden/'  + this.value;">
                     <option value="">PROVINCIES</option>
                     <option value="Noord-Holland">Noord-Holland</option>
                     <option value="Zuid-Holland">Zuid-Holland</option>
@@ -48,7 +48,7 @@
 
             <!-- Omvang filter -->
             <section class="omvang-filter">
-                <select class="mobile-subtext" name="omvang" id="omvang">
+                <select class="subtext" name="omvang" id="omvang">
                     <option value="">OMVANG</option>
                     <option value="1-9">1-9</option>
                     <option value="10-24">10-24</option>
@@ -64,7 +64,7 @@
 
             <!-- Sorteren filter -->
             <section class="sorteren-filter">
-                <select class="mobile-subtext" name="sorteren" id="sorteren" onchange="if(this.value) window.location.href='/leden/zoeken/' + this.value;">
+                <select class="subtext" name="sorteren" id="sorteren" onchange="if(this.value) window.location.href='/leden/zoeken/' + this.value;">
                     <option value="">SORTEREN</option>
                     <option value="az">A-Z</option>
                     <option value="za">Z-A</option>
@@ -83,10 +83,10 @@
     {% for lid in leden %}
       <section class="leden-card">
         <img loading="lazy" alt="{{ lid.title }}" src="https://fdnd-agency.directus.app/assets/{{ lid.photo }}" width="200">
-        <h3 class="mobile-h3">{{ lid.title | upcase }}</h3>
-        <p class="mobile-subtext">{{ lid.address | split: " " | last | upcase }}</p>
-        <p class="mobile-subtext">{{ lid.colleagues | upcase }} WERKNEMERS</p>
-        <a class="mobile-subtext-2" href="">DETAILS
+        <h3>{{ lid.title | upcase }}</h3>
+        <p class="subtext">{{ lid.address | split: " " | last | upcase }}</p>
+        <p class="subtext">{{ lid.colleagues | upcase }} WERKNEMERS</p>
+        <a href="/leden/lid/{{ lid.id }}">DETAILS
             <img src="/img/arrow.svg" alt="">
         </a>
       </section>

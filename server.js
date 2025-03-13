@@ -37,10 +37,12 @@ app.get('/', async function (request, response) {
   response.render('index.liquid'  )
 })
 
-app.get('/leden/bedrijf/:id', async function (request, response) {
-  // Render index.liquid uit de Views map
-  // Geef hier eventueel data aan mee
-  response.render('lid.liquid')
+app.get('/leden/lid/:id', async function (request, response) {
+  
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/dda_agencies/' + request.params.id)
+  const apiResponseJSON = await apiResponse.json() 
+
+  response.render('lid.liquid', { lidDetails: apiResponseJSON.data });
 })
 
 app.get('/leden', async function (request, response) {
@@ -80,7 +82,6 @@ app.get('/leden/zoeken/:wat', async function (request, response) {
   
   response.render('leden.liquid', { leden: apiResponseJSON.data });
 });
-
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
